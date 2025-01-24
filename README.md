@@ -1,40 +1,78 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/pages/api-reference/create-next-app).
+# Tarefas+
 
-## Getting Started
+## 📖 Descrição
 
-First, run the development server:
+**Tarefas+** é um sistema de gerenciamento de tarefas desenvolvido com **Next.js**, **Firebase** e **NextAuth**. Este projeto foi criado para **aperfeiçoar meu conhecimento** em desenvolvimento web, explorando funcionalidades como autenticação, manipulação de dados em tempo real e renderização estática e dinâmica.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+Com **Tarefas+**, os usuários podem:
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- **Criar Tarefas**: Adicione e gerencie suas tarefas pessoais.
+- **Privacidade Flexível**: Defina tarefas como públicas ou privadas.
+- **Comentários Interativos**: Adicione e visualize comentários nas tarefas.
+- **Compartilhamento Fácil**: Compartilhe tarefas específicas através de links personalizados.
+- **Autenticação Segura**: Faça login com sua conta Google via **NextAuth**.
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+## 🚀 Tecnologias Utilizadas
 
-[API routes](https://nextjs.org/docs/pages/building-your-application/routing/api-routes) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+- **Next.js**: Framework React para renderização estática e server-side.
+- **Firebase Firestore**: Banco de dados NoSQL para armazenamento eficiente de dados.
+- **NextAuth.js**: Implementação de autenticação segura.
+- **TypeScript**: Tipagem estática para um código mais robusto.
+- **React Hooks**: Gerenciamento de estado e efeitos de forma eficiente.
+- **CSS Modules**: Estilização modular e escalável.
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/pages/building-your-application/routing/api-routes) instead of React pages.
+## 🛠️ Como Executar o Projeto
 
-This project uses [`next/font`](https://nextjs.org/docs/pages/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### 🔧 Pré-requisitos
 
-## Learn More
+- **Node.js** (versão 14 ou superior)
+- **npm** ou **yarn**
+- Conta no **Firebase** para configurar o Firestore
+- Credenciais de **Google OAuth** para autenticação
 
-To learn more about Next.js, take a look at the following resources:
+### 📦 Instalação
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn-pages-router) - an interactive Next.js tutorial.
+1. **Clone o repositório:**
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+   ```bash
+   git clone https://github.com/marcusvramos/tasks-plus-next
+   ```
 
-## Deploy on Vercel
+2. Acesse o diretório do projeto:
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+   ```bash
+   cd tasks-plus-next
+   ```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/pages/building-your-application/deploying) for more details.
+3. Instale as dependências:
+
+   ```bash
+   npm install
+   # ou
+   yarn install
+   ```
+
+4. Crie um `.env` na raiz do projeto e adicione:
+   ```bash
+    GOOGLE_CLIENT_ID=your_GOOGLE_CLIENT_ID
+    GOOGLE_CLIENT_SECRET=your_GOOGLE_CLIENT_SECRET
+    NEXT_AUTH_URL=http://localhost:3000
+    JWT_SECRET=your_jwt_secret
+    NEXT_PUBLIC_URL=http://localhost:3000
+   ```
+
+### 🚀 Executando o Projeto
+
+1. Inicie o servidor de desenvolvimento:
+
+   ```bash
+   npm run dev
+   # ou
+   yarn dev
+   ```
+
+2. Abra o navegador e acesse:
+    ```bash
+    http://localhost:3000
+
+    ```
