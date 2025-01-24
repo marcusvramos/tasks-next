@@ -162,8 +162,10 @@ export default function Dashboard({ user }: HomeProps) {
 
         <section className={styles.taskContainer}>
           <h1>Minhas tarefas</h1>
-          {loading && <p>Carregando...</p>}
-          {!loading && tasks.length === 0 && <p>Nenhuma tarefa encontrada</p>}
+          {loading && <p className={styles.infoMessage}>Carregando...</p>}
+          {!loading && tasks.length === 0 && (
+            <p className={styles.infoMessage}>Nenhuma tarefa encontrada!</p>
+          )}
           {tasks.map((task) => (
             <article className={styles.task}>
               {task.public && (
