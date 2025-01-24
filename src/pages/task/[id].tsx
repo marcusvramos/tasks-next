@@ -16,8 +16,8 @@ import {
 } from "firebase/firestore";
 
 import { FaTrash } from "react-icons/fa";
-import { db } from "@/src/services/firebase-connection";
-import { TextArea } from "@/src/components/textarea";
+import { db } from "../../services/firebase-connection";
+import { TextArea } from "../../components/textarea";
 
 interface TaskProps {
   item: {

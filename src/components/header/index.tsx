@@ -1,5 +1,5 @@
 import { useSession, signIn, signOut } from "next-auth/react";
-import styles from "@/src/components/header/styles.module.css";
+import styles from "./styles.module.css";
 import Link from "next/link";
 
 export function Header() {

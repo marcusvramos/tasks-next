@@ -3,11 +3,11 @@ import { GetServerSideProps } from "next";
 import Head from "next/head";
 
 import { getSession } from "next-auth/react";
-import { TextArea } from "@/src/components/textarea";
+import { TextArea } from "../../components/textarea";
 import { FiShare2 } from "react-icons/fi";
 import { FaTrash } from "react-icons/fa";
 import { ChangeEvent, FormEvent, useEffect, useState } from "react";
-import { db } from "@/src/services/firebase-connection";
+import { db } from "../../services/firebase-connection";
 import {
   addDoc,
   collection,

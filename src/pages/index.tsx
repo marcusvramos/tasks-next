@@ -1,9 +1,9 @@
-import styles from "@/styles/home.module.css";
+import styles from '@/styles/home.module.css'
 import Head from "next/head";
 import Image from "next/image";
-import heroImg from "@/public/assets/hero.png";
+import heroImg from "../../public/assets/hero.png";
 import { GetStaticProps } from "next";
-import { db } from "@/src/services/firebase-connection";
+import { db } from "../services/firebase-connection";
 import { collection, getDocs } from "firebase/firestore";
 
 interface HomeProps {
