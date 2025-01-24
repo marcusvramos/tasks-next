@@ -42,32 +42,43 @@ export default function Dashboard({ user }: HomeProps) {
   const [tasks, setTasks] = useState<TaskProps[]>([]);
 
   useEffect(() => {
-    async function loadTask() {
-      const tasksRef = collection(db, "tasks");
-      const q = query(
-        tasksRef,
-        orderBy("created", "desc"),
-        where("user", "==", user?.email)
-      );
+    if (user?.email) {
+      async function loadTask() {
+        try {
+          setLoading(true);
+          const tasksRef = collection(db, "tasks");
+          const q = query(
+            tasksRef,
+            orderBy("created", "desc"),
+            where("user", "==", user.email)
+          );
 
-      onSnapshot(q, (querySnapshot) => {
-        let list: TaskProps[] = [];
-        querySnapshot.forEach((doc) => {
-          list.push({
-            id: doc.id,
-            task: doc.data().task,
-            created: doc.data().created.toDate(),
-            user: doc.data().user,
-            public: doc.data().public,
+          const unsubscribe = onSnapshot(q, (querySnapshot) => {
+            let list: TaskProps[] = [];
+            querySnapshot.forEach((doc) => {
+              list.push({
+                id: doc.id,
+                task: doc.data().task,
+                created: doc.data().created.toDate(),
+                user: doc.data().user,
+                public: doc.data().public,
+              });
+            });
+
+            setTasks(list);
+            setLoading(false);
           });
-        });
 
-        setTasks(list);
-      });
+          return () => unsubscribe(); // Cleanup subscription
+        } catch (error) {
+          console.error("Error loading tasks", error);
+          setLoading(false);
+        }
+      }
+
+      loadTask();
     }
-
-    loadTask();
-  }, []);
+  }, [user?.email]);
 
   function handleChangePublic(e: ChangeEvent<HTMLInputElement>) {
     setPublicTask(e.target.checked);
@@ -151,6 +162,8 @@ export default function Dashboard({ user }: HomeProps) {
 
         <section className={styles.taskContainer}>
           <h1>Minhas tarefas</h1>
+          {loading && <p>Carregando...</p>}
+          {!loading && tasks.length === 0 && <p>Nenhuma tarefa encontrada</p>}
           {tasks.map((task) => (
             <article className={styles.task}>
               {task.public && (
