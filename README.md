@@ -35,7 +35,7 @@ Com **Tarefas+**, os usuários podem:
 1. **Clone o repositório:**
 
    ```bash
-   git clone https://github.com/marcusvramos/tasks-plus-next
+   git clone https://github.com/marcusvramos/tasks-next
    ```
 
 2. Acesse o diretório do projeto:
